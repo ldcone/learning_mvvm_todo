@@ -16,11 +16,15 @@ import com.example.learning_mvvm_todo.domain.todo.UpdateToDoUseCase
 import com.example.learning_mvvm_todo.presentation.detail.DetailMode
 import com.example.learning_mvvm_todo.presentation.detail.DetailViewModel
 import com.example.learning_mvvm_todo.presentation.list.ListViewModel
+import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 internal val appModule = module {
+
+    single { Dispatchers.Main }
+    single { Dispatchers.IO }
 
     viewModel { ListViewModel(get(),get(),get()) }
     viewModel {(detailMode: DetailMode, id:Long) -> DetailViewModel(

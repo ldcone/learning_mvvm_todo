@@ -52,21 +52,15 @@ internal class DetailViewModel(
 
     }
 
-    override fun deleteTodo(): Job = viewModelScope.launch {
+    fun deleteTodo(): Job = viewModelScope.launch {
         _toDoDetailLiveData.postValue(ToDoDetailState.Loading)
         try{
-            if(deleteToDoItemUseCase(id)){
-                _toDoDetailLiveData.postValue(ToDoDetailState.Delete)
-
-            }else{
-                _toDoDetailLiveData.postValue(ToDoDetailState.Error)
-
-            }
+            deleteToDoItemUseCase(id)
+            _toDoDetailLiveData.postValue(ToDoDetailState.Delete)
         }catch (e:Exception){
             e.printStackTrace()
             _toDoDetailLiveData.postValue(ToDoDetailState.Error)
         }
-        _toDoDetailLiveData.postValue(ToDoDetailState.Error)
     }
 
     fun writeToDo(title: String, description: String) = viewModelScope.launch {

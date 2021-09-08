@@ -1,6 +1,5 @@
 package com.example.learning_mvvm_todo.data.repository
 
-import android.view.KeyEvent
 import com.example.learning_mvvm_todo.data.entity.ToDoEntity
 import com.example.learning_mvvm_todo.data.local.db.dao.ToDoDao
 import kotlinx.coroutines.CoroutineDispatcher
@@ -22,7 +21,7 @@ class DefalutToDoRepository(
         toDoDao.insert(toDoItem)
     }
 
-    override suspend fun updateToDoItem(toDoItem: ToDoEntity):Boolean = withContext(ioDispatcher){
+    override suspend fun updateToDoItem(toDoItem: ToDoEntity) = withContext(ioDispatcher){
         toDoDao.update(toDoItem)
     }
 
@@ -34,7 +33,7 @@ class DefalutToDoRepository(
         toDoDao.deleteAll()
     }
 
-    override suspend fun deleteToDoItem(id: Long): Boolean = withContext(ioDispatcher){
+    override suspend fun deleteToDoItem(id: Long) = withContext(ioDispatcher){
         toDoDao.delete(id)
     }
 

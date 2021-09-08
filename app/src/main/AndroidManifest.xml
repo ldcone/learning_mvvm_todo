@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Learning_mvvm_todo"
         android:name=".todo_sample">
         <activity
-            android:name=".presentation.list.MainActivity"
+            android:name=".presentation.list.ListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

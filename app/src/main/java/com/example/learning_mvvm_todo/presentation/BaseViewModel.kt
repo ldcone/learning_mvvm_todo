@@ -5,5 +5,5 @@ import kotlinx.coroutines.Job
 
 internal abstract class BaseViewModel: ViewModel() {
     abstract fun fetchData(): Job
-    abstract fun deleteTodo(): Job
+
 }
