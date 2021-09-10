@@ -44,7 +44,6 @@ internal class ListViewModel(
 
     fun updateEntity(todoEntity:ToDoEntity)= viewModelScope.launch {
         updateToDoUseCase(todoEntity)
-
 //        val success = updateToDoUseCase(todoEntity)
     }
 

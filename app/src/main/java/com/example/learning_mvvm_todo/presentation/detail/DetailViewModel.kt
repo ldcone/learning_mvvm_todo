@@ -51,6 +51,9 @@ internal class DetailViewModel(
         }
 
     }
+    fun setModifyMode() = viewModelScope.launch {
+        _toDoDetailLiveData.postValue(ToDoDetailState.Modify)
+    }
 
     fun deleteTodo(): Job = viewModelScope.launch {
         _toDoDetailLiveData.postValue(ToDoDetailState.Loading)
